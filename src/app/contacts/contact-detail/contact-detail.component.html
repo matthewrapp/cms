@@ -9,30 +9,26 @@
       </div>
     <div class="row row-flex align-items-center">
         <div class="col-xs-6">
-            <img class="img-responsive" alt="" src="" />
+            <h4>{{contact.name}}</h4>
+            <img class="img-responsive" alt="" [src]="contact.imageUrl" />
         </div>
-        <div class="col-xs-6 btn-group">
-            <div class="row row-flex align-items-center text-right">
-                <div class="col-xs-12">
-                    <button class="btn btn-primary" type="button">Edit</button>
-                    <button class="btn btn-danger" type="button">Delete</button>
-                </div>
-            </div>
+        <div class="col-xs-6 btn-toolbar">
+            <button class="btn btn-primary" type="button">Edit</button>
+            <button class="btn btn-danger" type="button">Delete</button>
         </div>
     </div>
   </div>
   <div class="panel-body">
     <ul class="list-group">
-        <a class="list-group-item" style="cursor: pointer;" *ngFor="let contact of contacts">
+        <!-- <a class="list-group-item" style="cursor: pointer;" *ngFor="let contact of contacts"> -->
+        <div class="">
             <div class="row">
-                <div class="col-xs-9">
-                    <h4>{{contact.name}}</h4>
-                </div>
-                <div class="col-xs-3">
-                    <img [src]="contact.imageUrl" [alt]="contact.name" class="img-responsive"/>
+                <div class="col-xs-12">
+                    <p><strong>Email:</strong> {{contact.email}}</p>
+                    <p><strong>Phone:</strong> {{contact.phone}}</p>
                 </div>
             </div>
-        </a>
+        </div>
     </ul>
   </div>
 </div>

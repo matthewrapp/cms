@@ -1,0 +1,10 @@
+<a class="list-group-item" style="cursor: pointer;" (click)="onSelected()">
+    <div class="row">
+        <div class="col-xs-9">
+            <h4>{{contact.name}}</h4>
+        </div>
+        <div class="col-xs-3">
+            <img [src]="contact.imageUrl" [alt]="contact.name" class="img-responsive"/>
+        </div>
+    </div>
+</a>
