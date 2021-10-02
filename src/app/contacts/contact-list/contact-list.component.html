@@ -11,16 +11,7 @@
   </div>
   <div class="panel-body">
     <ul class="list-group">
-        <a class="list-group-item" style="cursor: pointer;" *ngFor="let contact of contacts">
-            <div class="row">
-                <div class="col-xs-9">
-                    <h4>{{contact.name}}</h4>
-                </div>
-                <div class="col-xs-3">
-                    <img [src]="contact.imageUrl" [alt]="contact.name" class="img-responsive"/>
-                </div>
-            </div>
-        </a>
+        <cms-contact-item *ngFor="let contact of contacts" [contact]="contact" (contactSelected)="onSelected(contact)" ></cms-contact-item>
     </ul>
   </div>
 </div>
