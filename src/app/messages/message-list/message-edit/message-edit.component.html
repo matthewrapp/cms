@@ -5,6 +5,7 @@
                 <div class="col-sm-12 form-group">
                     <label for="subject">Subject</label>
                     <input
+                    #subject
                     type="text"
                     id="subject"
                     class="form-control"
@@ -15,6 +16,7 @@
                 <div class="col-sm-12 form-group">
                     <label for="message">Message</label>
                     <input
+                    #message
                     type="text"
                     id="message"
                     class="form-control"
@@ -24,8 +26,8 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <button class="btn btn-success" type="submit">Send</button>
-                    <button class="btn btn-danger" type="button">Clear</button>
+                    <button class="btn btn-success" type="submit" (click)="onSendMessage(subject, message)">Send</button>
+                    <button class="btn btn-danger" type="button" (click)="onClear()">Clear</button>
                 </div>
             </div>
         </form>
