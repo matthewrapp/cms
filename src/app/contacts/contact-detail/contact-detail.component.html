@@ -13,8 +13,8 @@
             <img class="img-responsive" alt="" [src]="contact.imageUrl" />
         </div>
         <div class="col-xs-6 btn-toolbar">
-            <button class="btn btn-primary" type="button">Edit</button>
-            <button class="btn btn-danger" type="button">Delete</button>
+            <a [routerLink]="['edit']" class="btn btn-primary" type="button">Edit</a>
+            <a (click)="onDelete()" class="btn btn-danger" type="button">Delete</a>
         </div>
     </div>
   </div>

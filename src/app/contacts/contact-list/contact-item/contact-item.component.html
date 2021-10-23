@@ -1,4 +1,4 @@
-<a class="list-group-item" style="cursor: pointer;" (click)="onSelected()">
+<a class="list-group-item" style="cursor: pointer;" [routerLinkActive]="['active']" [routerLink]="[contact.id]">
     <div class="row">
         <div class="col-xs-9">
             <h4>{{contact.name}}</h4>

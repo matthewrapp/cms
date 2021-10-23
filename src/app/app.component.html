@@ -1,9 +1,12 @@
-<cms-header (selectedFeatureEvent)="switchView($event)"></cms-header>
-<div class="container" [ngSwitch]="selectedFeature">
+<cms-header></cms-header>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+<!-- <div class="container" [ngSwitch]="selectedFeature">
     <cms-documents *ngSwitchCase="'documents'"></cms-documents>
     <cms-messages *ngSwitchCase="'messages'"></cms-messages>
     <cms-contacts *ngSwitchCase="'contacts'"></cms-contacts>
-</div>
+</div> -->
 <!-- <div class="container">
     <cms-documents *ngIf="selectedFeature === 'documents'"></cms-documents>
     <cms-messages *ngIf="selectedFeature=== 'messages'"></cms-messages>
