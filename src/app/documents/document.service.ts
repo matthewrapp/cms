@@ -27,6 +27,8 @@ export class DocumentService {
     if (!newDocument) return
     this.maxDocumentId++;
     newDocument.id = this.maxDocumentId.toString();
+    
+    this.documents.push(newDocument);
 
     const docListClone = this.documents.slice();
     this.documentListChangedEvent.next(docListClone);
@@ -47,7 +49,7 @@ export class DocumentService {
     return this.documents.slice();
   }
 
-  getDocument(id: string) {
+  getDocument(id: string): Document {
     return this.documents.find(document => document.id === id ? document : null);
   }
 

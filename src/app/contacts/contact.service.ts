@@ -23,16 +23,18 @@ export class ContactService {
     return maxId;
   }
 
-  addDocument(newContact: Contact): void {
+  addContact(newContact: Contact): void {
     if (!newContact) return
     this.maxContactId++;
     newContact.id = this.maxContactId.toString();
+
+    this.contacts.push(newContact);
 
     const contactListClone = this.contacts.slice();
     this.contactListChangedEvent.next(contactListClone);
   }
 
-  updateDocument(originalContact: Contact, newContact: Contact): void {
+  updateContact(originalContact: Contact, newContact: Contact): void {
     if (!originalContact) return
     const pos = this.contacts.indexOf(originalContact);
     if (pos < 0) return
