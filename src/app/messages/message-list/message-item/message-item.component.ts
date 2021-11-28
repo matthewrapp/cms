@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Contact } from 'src/app/contacts/contact.model';
+import { Component, Input, OnInit, ɵɵsetComponentScope } from '@angular/core';
 import { ContactService } from 'src/app/contacts/contact.service';
 import { Message } from '../../message.model';
 
@@ -14,9 +13,9 @@ export class MessageItemComponent implements OnInit {
 
   constructor(private contactService: ContactService) { }
 
-  ngOnInit() {
-    const contact: any = this.contactService.getContact(this.message.sender);
-    this.messageSender = contact.name;
+  ngOnInit(): void {
+    const contact: any = this.contactService.getContact(this.message.sender.id);
+    this.messageSender = contact?.name;
    }
 
 }
