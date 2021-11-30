@@ -41,7 +41,6 @@ export class ContactService {
     // add to db
     this.http.post<{message: string, contact: Contact}>('http://localhost:3000/contacts', newContact, {headers: headers})
       .subscribe(responseData => {
-  
         this.contacts.push(responseData.contact);
         this.contacts.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
         this.sortAndSend();

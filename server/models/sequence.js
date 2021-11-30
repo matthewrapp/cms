@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 
 const sequenceSchema = mongoose.Schema({
-    maxDocumentId: { type: String },
-    maxMessageId: { type: String },
-    MaxContactId: { type: String },
+    maxDocumentId: { type: Number, require: true },
+    maxMessageId: { type: Number, require: true },
+    MaxContactId: { type: Number, require: true },
 });
 
 module.exports = mongoose.model('Sequence', sequenceSchema);

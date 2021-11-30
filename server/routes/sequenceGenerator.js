@@ -1,3 +1,4 @@
+const { sequence } = require('@angular/animations');
 var Sequence = require('../models/sequence');
 
 var maxDocumentId;
@@ -10,11 +11,10 @@ function SequenceGenerator() {
   Sequence.findOne()
     .exec(function(err, sequence) {
       if (err) {
-        return
-        // return res.status(500).json({
-        //   title: 'An error occurred',
-        //   error: err
-        // });
+        return res.status(500).json({
+          title: 'An error occurred',
+          error: err
+        });
       }
 
       sequenceId = sequence._id;
@@ -25,7 +25,6 @@ function SequenceGenerator() {
 }
 
 SequenceGenerator.prototype.nextId = function(collectionType) {
-
   var updateObject = {};
   var nextId;
 
@@ -37,7 +36,6 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
       break;
     case 'messages':
       maxMessageId++;
-      maxMessageId;
       updateObject = {maxMessageId: maxMessageId};
       nextId = maxMessageId;
       break;
@@ -57,7 +55,7 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
         return null
       }
     });
-    
+
   return nextId;
 }
 

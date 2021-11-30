@@ -34,13 +34,12 @@ router.post('/', async (req, res, next) => {
         group: req.body.group
     });
 
-    console.log(contact)
 
     contact.save()
         .then(createdContact => {
             return res.status(201).json({
                 message: 'Contact added successfully!',
-                document: createdContact
+                contact: createdContact
             })
         })
         .catch(err => {

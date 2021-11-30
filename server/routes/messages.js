@@ -3,15 +3,12 @@ var router = express.Router();
 
 const sequenceGenerator = require('./sequenceGenerator');
 const Message = require('../models/message');
-const Contact = require('../models/contact');
-const { max } = require('rxjs');
-const contact = require('../models/contact');
-const message = require('../models/message');
 
 router.get('/', (req, res, next) => {
     Message.find()
-        .populate('sender')
+    .populate('sender')
         .then(async messages => {
+            console.log(messages)
             return res.status(200).json({
                 message: "Success!", 
                 messages: messages
@@ -48,35 +45,6 @@ router.post('/', async (req, res, next) => {
                 error: err
             })
         });
-
-    // const msg = new Message({
-    //     id: maxId,
-    //     subject: req.body.subject,
-    //     msgText: req.body.msgText,
-    //     sender: req.body.sender
-    // });
-
-    // msg.save()
-    //     .then(async savedMsg => {
-    //         let documentToSend = {};
-
-    //         await Contact.findById({_id: savedMsg.sender}).then(contact => {
-    //             documentToSend.contact = contact;
-    //         });
-
-    //         documentToSend.document = savedMsg;
-
-    //         return res.status(201).json({
-    //             message: 'Message added successfully!',
-    //             document: documentToSend
-    //         })
-    //     })
-    //     .catch(err => {
-    //         return res.status(500).json({
-    //             message: 'An error occured when saving the new message to the database.',
-    //             error: err
-    //         })
-    //     });
 });
 
 router.put('/:id', (req, res, next) => {
