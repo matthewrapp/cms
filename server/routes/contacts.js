@@ -22,6 +22,23 @@ router.get('/', (req, res, next) => {
         })
 });
 
+// router.get('/:id', (req, res, next) => {
+//     Contact.findOne({ id: req.params.id })
+//         .populate('group')
+//         .then(contact => {
+//             return res.status(200).json({
+//                 message: 'Contact fetched successfully!',
+//                 contact: contact
+//             })
+//         })
+//         .catch(err => {
+//             res.status(500).json({
+//                 message: 'An error occured',
+//                 error: err
+//             })
+//         })
+// })
+
 router.post('/', async (req, res, next) => {
     const maxId = await sequenceGenerator.nextId('contacts');
 

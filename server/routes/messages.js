@@ -8,7 +8,6 @@ router.get('/', (req, res, next) => {
     Message.find()
     .populate('sender')
         .then(async messages => {
-            console.log(messages)
             return res.status(200).json({
                 message: "Success!", 
                 messages: messages

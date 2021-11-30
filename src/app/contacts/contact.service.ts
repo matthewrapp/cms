@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
 import { Contact } from './contact.model';
+import { stringify } from 'querystring';
 // import { MOCKCONTACTS } from './MOCKCONTACTS';
 
 @Injectable({ providedIn: 'root' })
@@ -92,13 +93,15 @@ export class ContactService {
       return this.contacts;
   }
   
-  getContact(id: string): Contact {
+  getContact(id: string) {
     // need to build out a server call to get contact by object id
     // const c = this.contacts.find(contact => contact.id === id ? contact : null);
     for (let contact of this.contacts) {
       if (contact.id === id) return contact;
     }
     return null
+    // return this.http.get<{message: stringify, contact: Contact}>('http://localhost:3000/contacts/'+ id);
+    // return this.http.get<{message: string, contact: Contact}>('http://localhost:3000/contacts' + id);
   }
 
   deleteContact(contact: Contact) {

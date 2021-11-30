@@ -16,11 +16,11 @@ export class MessageEditComponent implements OnInit {
   currentSender: Contact;
 
   constructor(private messageServive: MessageService, private contactService: ContactService) {
-    this.currentSender = this.contactService.getContact('101');
+    // this.currentSender = Contact;
    }
 
   ngOnInit(): void {
-    // this.currentSender = this.contactService.getContact('101');
+    this.currentSender = this.contactService.getContact('101');
   }
 
   onSendMessage(subject: HTMLInputElement, msgText: HTMLInputElement) {

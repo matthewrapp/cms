@@ -47,7 +47,6 @@ export class MessageService {
     // return this.messages.slice();
     this.http.get<{message: string, messages: Message[]}>('http://localhost:3000/messages')
       .subscribe(responseData => {
-        console.log(responseData)
         this.messages = responseData.messages;
         // this.maxMessageId = this.getMaxId();
         // this.messages.sort((a, b) => {
