@@ -9,8 +9,8 @@
       </div>
     <div class="row row-flex align-items-center">
         <div class="col-xs-6">
-            <h4>{{contact.name}}</h4>
-            <img class="img-responsive" alt="" [src]="contact.imageUrl" />
+            <h4>{{contact?.name}}</h4>
+            <img class="img-responsive" alt="" [src]="contact?.imageUrl" />
         </div>
         <div class="col-xs-6 btn-toolbar">
             <a [routerLink]="['edit']" class="btn btn-primary" type="button">Edit</a>
@@ -24,8 +24,8 @@
         <div class="">
             <div class="row">
                 <div class="col-xs-12">
-                    <p><strong>Email:</strong> {{contact.email}}</p>
-                    <p><strong>Phone:</strong> {{contact.phone}}</p>
+                    <p><strong>Email:</strong> {{contact?.email}}</p>
+                    <p><strong>Phone:</strong> {{contact?.phone}}</p>
                 </div>
             </div>
         </div>
