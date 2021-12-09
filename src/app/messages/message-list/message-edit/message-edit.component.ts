@@ -20,12 +20,16 @@ export class MessageEditComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.currentSender = this.contactService.getContact('101');
+    this.currentSender = this.contactService.getContact('110');
+    this.contactService.getContact('110')
   }
 
   onSendMessage(subject: HTMLInputElement, msgText: HTMLInputElement) {
     const sub = this.subjectInputRef.nativeElement.value;
     const msg = this.messageInputRef.nativeElement.value;
+
+    console.log(this.currentSender)
+
     const newMessage = new Message('5', sub, msg, this.currentSender);
     this.messageServive.addMessage(newMessage);
     this.onClear();

@@ -30,7 +30,7 @@ export class MessageService {
   addMessage(message: Message) {
     if (!message) return
     message.id = ''
-
+    
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     // add to db
     this.http.post<{message: Message}>('http://localhost:3000/messages', message, {headers: headers})
