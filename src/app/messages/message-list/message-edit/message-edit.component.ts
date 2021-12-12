@@ -28,8 +28,6 @@ export class MessageEditComponent implements OnInit {
     const sub = this.subjectInputRef.nativeElement.value;
     const msg = this.messageInputRef.nativeElement.value;
 
-    console.log(this.currentSender)
-
     const newMessage = new Message('5', sub, msg, this.currentSender);
     this.messageServive.addMessage(newMessage);
     this.onClear();
